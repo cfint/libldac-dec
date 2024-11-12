@@ -166,8 +166,7 @@ LDACBT_API int ldacBT_init_handle_decode(
   // frmlen = 165 * channel - LDACBT_FRMHDRBYTES;
   frmlen = tbl_ldacbt_config[0].frmlen_1ch * channel - LDACBT_FRMHDRBYTES;
   /* Set Configuration Information */
-  result = ldaclib_set_config_info(
-      hLdacBT->hLDAC, hLdacBT->sfid, hLdacBT->cci, hLdacBT->frmlen, hLdacBT->frm_status);
+  result = ldaclib_set_config_info(hLdacBT->hLDAC, sfid, cci, frmlen, 0);
   if (LDAC_FAILED(result)) {
     hLdacBT->error_code_api = LDACBT_GET_LDACLIB_ERROR_CODE;
     return LDACBT_E_FAIL;
